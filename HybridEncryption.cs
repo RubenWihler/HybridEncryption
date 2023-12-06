@@ -8,7 +8,7 @@ using System.Security.Cryptography;
 //  Asymmetric encryption (RSA): https://learn.microsoft.com/en-us/dotnet/standard/security/encrypting-data#asymmetric-encryption
 //Other:
 //AES | initialisation vector (IV) : https://www.techtarget.com/whatis/definition/initialization-vector-IV
-public static class EncryptionManager
+public static class HybridEncryption
 {
     /// <summary>
     /// Generate a private/public RSA key and return it in XML string
