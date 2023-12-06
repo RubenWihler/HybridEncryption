@@ -123,6 +123,8 @@ public static string Decrypt(string encryptedText, string aesKey, string aesIV, 
 var decryptedText = HybridEncryption.Decrypt(encryptedText, encryptedAESKey, encryptedAESIV, privateKey);
 ```
 
+------------------------------------------------------------------------------------------------------------------------
+
 ## Private Methods <a name="private-methods"></a>
 
 ```csharp
