@@ -1,8 +1,8 @@
-# EncryptionManager Class Documentation
+# HybridEncryption class Documentation
 
 ## Overview
 
-The `EncryptionManager` class provides a set of methods for performing combined RSA and AES encryption and decryption in C#. This class enables the generation of RSA key pairs, encryption of text using a combination of RSA and AES, and subsequent decryption of the encrypted text.
+The `HybridEncryption` class provides a set of methods for performing combined RSA and AES encryption and decryption in C#. This class enables the generation of RSA key pairs, encryption of text using a combination of RSA and AES, and subsequent decryption of the encrypted text.
 
 ## Table of Contents
 
@@ -41,10 +41,12 @@ None
 #### Example
 
 ```csharp
-var keys = EncryptionManager.GenerateRSAKeys();
+var keys = HybridEncryption.GenerateRSAKeys();
 var publicKey = keys.publicKey;
 var privateKey = keys.privateKey;
 ```
+
+------------------------------------------------------------------------------------------------------------------------
 
 ## Text Encryption <a name="text-encryption"></a>
 
@@ -78,11 +80,13 @@ public static (string text, string aesKey, string aesIV) Encrypt(string text, st
 #### Example
 
 ```csharp
-var encryptionResult = EncryptionManager.Encrypt("Hello, World!", publicKey);
+var encryptionResult = HybridEncryption.Encrypt("Hello, World!", publicKey);
 var encryptedText = encryptionResult.text;
 var encryptedAESKey = encryptionResult.aesKey;
 var encryptedAESIV = encryptionResult.aesIV;
 ```
+
+------------------------------------------------------------------------------------------------------------------------
 
 ## Text Decryption <a name="text-decryption"></a>
 
@@ -116,7 +120,7 @@ public static string Decrypt(string encryptedText, string aesKey, string aesIV, 
 #### Example
 
 ```csharp
-var decryptedText = EncryptionManager.Decrypt(encryptedText, encryptedAESKey, encryptedAESIV, privateKey);
+var decryptedText = HybridEncryption.Decrypt(encryptedText, encryptedAESKey, encryptedAESIV, privateKey);
 ```
 
 ## Private Methods <a name="private-methods"></a>
@@ -146,6 +150,8 @@ private static byte[] RsaEncrypt(string data, string publicKey)
 
 - The encrypted data.
 
+------------------------------------------------------------------------------------------------------------------------
+
 ```csharp
 private static byte[] RsaDecrypt(string data, string privateKey)
 ```
@@ -170,6 +176,8 @@ private static byte[] RsaDecrypt(string data, string privateKey)
 #### Returns
 
 - The decrypted data.
+
+------------------------------------------------------------------------------------------------------------------------
 
 ```csharp
 private static byte[] AesEncrypt(string data, byte[] key, byte[] IV)
@@ -197,6 +205,8 @@ private static byte[] AesEncrypt(string data, byte[] key, byte[] IV)
 
 - The encrypted data.
 
+------------------------------------------------------------------------------------------------------------------------
+
 ```csharp
 private static string AesDecrypt(byte[] cipherText, byte[] key, byte[] IV)
 ```
@@ -222,6 +232,8 @@ private static string AesDecrypt(byte[] cipherText, byte[] key, byte[] IV)
 #### Returns
 
 - The decrypted data.
+
+------------------------------------------------------------------------------------------------------------------------
 
 ```csharp
 private static (byte[] key, byte[] IV) GenerateAESKey()
